@@ -18,7 +18,7 @@ creiamo un file chiamato greeter.ts con questo contenuto:
     return "Hello, " + person;
   }
 
-  let user = "Jane User";
+  let user = "Gabriele Puliti";
 
   document.body.innerHTML = greeter(user);
 ```
@@ -32,7 +32,7 @@ function greeter(person:string) {
   return "Hello, " + person;
 }
 
-let user = "Jane User";
+let user = "Gabriele Puliti";
 
 document.body.innerHtml = greeter(user);
 ```
@@ -55,4 +55,31 @@ a questo punto se proviamo a ricompilare il nostro codice otterremo giustamente 
 greeter.ts:7:35 - error TS2345: Argument of type 'number[]' is not assignable to parameter of type 'string'.
 
 7 document.body.innerHTML = greeter(user);
+```
+TypeScript ci avvertirà se il nostro codice ha delle chiamate a funzioni inaspettate o sbagliate, offre quindi un'analisi statica del codice sia da un punto di vista di struttura che dai tipi usati.
+Notiamo anche che nonostante l'output su terminale abbiamo dato un risultato negativo, il file javascript viene comunque creato. Quindi possiamo usare il file javascript creato nonostante siano stati trovati errori da TypeScript.
+
+# Interfacce e classi
+In un linguaggio che si rispetta è necessario avere un modo per definire delle interfacce, modifichiamo quindi il nostro esempio aggiungendo un'interfaccia e adeguiamo il codice a questa modifica:
+```
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+function greeter(person:Person) {
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = { firstName: "Gabriele", lastName: "Puliti"}
+
+document.body.innerHTML = greeter(user);
+```
+compilando vediamo che nel file javascript risultante non comparirà l'interfaccia ma il codice si adatterà a quello che abbiamo creato con TypeScript:
+```
+function greeter(person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+var user = { firstName: "Gabriele", lastName: "Puliti" };
+document.body.innerHTML = greeter(user);
 ```
