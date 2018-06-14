@@ -59,7 +59,7 @@ greeter.ts:7:35 - error TS2345: Argument of type 'number[]' is not assignable to
 TypeScript ci avvertirà se il nostro codice ha delle chiamate a funzioni inaspettate o sbagliate, offre quindi un'analisi statica del codice sia da un punto di vista di struttura che dai tipi usati.
 Notiamo anche che nonostante l'output su terminale abbiamo dato un risultato negativo, il file javascript viene comunque creato. Quindi possiamo usare il file javascript creato nonostante siano stati trovati errori da TypeScript.
 
-# Interfacce e classi
+## Interfacce e classi
 In un linguaggio che si rispetta è necessario avere un modo per definire delle interfacce, modifichiamo quindi il nostro esempio aggiungendo un'interfaccia e adeguiamo il codice a questa modifica:
 ```
 interface Person {
@@ -83,3 +83,56 @@ function greeter(person) {
 var user = { firstName: "Gabriele", lastName: "Puliti" };
 document.body.innerHTML = greeter(user);
 ```
+Dato che TypeScript è class-based object-oriented significa che esistono le classi. Estendiamo il nostro esempio creando la classe student con un costruttore e alcuni campi pubblici:
+```
+class Student {
+  fullName: string;
+  constructor (public firstName: string, public middleInitial: string, public lastName: string) {
+    this.fullName = firstName + " " + middleInitial + " " + lastName;
+  }
+}
+
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+function greeter(person:Person) {
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = new Student("Gabriele", "Sig.", "Puliti");
+
+document.body.innerHTML = greeter(user);
+```
+Immaginiamo che con l'aggiunta di questa classe il codice javascript corrispondente sarà completamente cambiato. Effettivamente rieseguendo la compilazione del codice TypeScript otterremo il seguendo codice:
+```
+var Student = /** @class */ (function () {
+    function Student(firstName, middleInitial, lastName) {
+        this.firstName = firstName;
+        this.middleInitial = middleInitial;
+        this.lastName = lastName;
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+    return Student;
+}());
+function greeter(person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+var user = new Student("Gabriele", "Sig.", "Puliti");
+document.body.innerHTML = greeter(user);
+```
+Notiamo quindi la differenza essenziale di un codice in javascript da uno in TypeScript che è estremamente molto più leggibile.
+
+## Run the code
+Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a creare la pagina greeter.html con il seguente codice:
+```
+<!DOCKTYPE html>
+<html>
+  <head><title>TypeScript Greeter</title></head>
+  <body>
+    <script src="greeter.js"></script>
+  </body>
+</html>
+```
+Aprendo la pagina web il risultato sarà semplicemente la stampa di "Hello, Gabriele Puliti".
