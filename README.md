@@ -1,5 +1,10 @@
 # LearningTypescript
 
+## Introduzione
+TypeScript permette di non soffrire dal passaggio da linguaggi di programmazione orientati agli oggetti a JavaScript in cui sono assenti i tipi. JavaScript è un linguaggio tipizzato che non prevede controlli statici sui tipi di dato effettuando una conversione implicita tra i tipi, questa particolarità lo rende enormemente flessibile il problema arriva quando si generano errori che difficilmente sono analizzabili a runtime. Un'applicazione TypeScript viene tradotta da un compilatore in un'applicazione JavaScript eseguibile da qualsiasi engine. (Ci sono alcuni siti che forniscono degli ambienti online che traducono interattivamente il codice TypeScript in codice JavaScript, vedi [typescriptlang](http://www.typescriptlang.org/play/)).
+
+TypeScript è di per se un'estensione di JavaScript e qualsiasi script JavaScript è anche codice TypeScript valido. Il primo vantaggio è offerto dal fatto che la transizione da un progetto JavaScript esistente a TypeScript può essere fatto gradualmente, senza la necessità di riscrivere tutto. Il secondo vantaggio è rappresentato dalla possibilità di sfruttare il compilatore TypeScript su codice JavaScript standard per individuare già in fase di compilazione errori che normalmente possono sfuggire.
+
 ## Installazione
 
 Ci sono 2 metodi per installare TypeScript:
@@ -153,11 +158,6 @@ Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a c
 </html>
 ```
 Aprendo la pagina web il risultato sarà semplicemente la stampa di "Hello, Gabriele Puliti".
-
-## Più approfonditamente
-TypeScript permette di non soffrire dal passaggio da linguaggi di programmazione orientati agli oggetti a JavaScript in cui sono assenti i tipi. JavaScript è un linguaggio tipizzato che non prevede controlli statici sui tipi di dato effettuando una conversione implicita tra i tipi, questa particolarità lo rende enormemente flessibile il problema arriva quando si generano errori che difficilmente sono analizzabili a runtime. Un'applicazione TypeScript viene tradotta da un compilatore in un'applicazione JavaScript eseguibile da qualsiasi engine. (Ci sono alcuni siti che forniscono degli ambienti online che traducono interattivamente il codice TypeScript in codice JavaScript, vedi [typescriptlang](http://www.typescriptlang.org/play/)).
-
-TypeScript è di per se un'estensione di JavaScript e qualsiasi script JavaScript è anche codice TypeScript valido. Il primo vantaggio è offerto dal fatto che la transizione da un progetto JavaScript esistente a TypeScript può essere fatto gradualmente, senza la necessità di riscrivere tutto. Il secondo vantaggio è rappresentato dalla possibilità di sfruttare il compilatore TypeScript su codice JavaScript standard per individuare già in fase di compilazione errori che normalmente possono sfuggire.
 
 ## Tuple
 Un nuovo tipo di dato introdotto da TypeScript è rappresentato dalle *tuple*, che permette di definire array con elementi diversi tra loro e di fissare il tipo di un numero di elementi definendo uno schema preciso:
