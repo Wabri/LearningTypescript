@@ -83,6 +83,23 @@ function greeter(person) {
 var user = { firstName: "Gabriele", lastName: "Puliti" };
 document.body.innerHTML = greeter(user);
 ```
+Se nell'interfaccia alcune proprietà non sono necessarie è possible inserire un punto interrogativo accanto al nome della proprietà per indicare il fatto che quella proprietà è opzionale, es:
+```
+  interface Person {
+    firstName: string;
+    lastName: string;
+    age?: number;
+  }
+```
+Usando le interfacce è possibile definire i così detti Dizionari, es:
+```
+interface Dizionario {
+  [index: string] : string
+}
+var x : Dizionario;
+x["chiave1"] = "valore1";
+x["chiave2"] = "valore2";
+```
 Dato che TypeScript è class-based object-oriented significa che esistono le classi. Estendiamo il nostro esempio creando la classe student con un costruttore e alcuni campi pubblici:
 ```
 class Student {
@@ -136,3 +153,47 @@ Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a c
 </html>
 ```
 Aprendo la pagina web il risultato sarà semplicemente la stampa di "Hello, Gabriele Puliti".
+
+## Più approfonditamente
+TypeScript permette di non soffrire dal passaggio da linguaggi di programmazione orientati agli oggetti a JavaScript in cui sono assenti i tipi. JavaScript è un linguaggio tipizzato che non prevede controlli statici sui tipi di dato effettuando una conversione implicita tra i tipi, questa particolarità lo rende enormemente flessibile il problema arriva quando si generano errori che difficilmente sono analizzabili a runtime. Un'applicazione TypeScript viene tradotta da un compilatore in un'applicazione JavaScript eseguibile da qualsiasi engine. (Ci sono alcuni siti che forniscono degli ambienti online che traducono interattivamente il codice TypeScript in codice JavaScript, vedi [typescriptlang](http://www.typescriptlang.org/play/)).
+
+TypeScript è di per se un'estensione di JavaScript e qualsiasi script JavaScript è anche codice TypeScript valido. Il primo vantaggio è offerto dal fatto che la transizione da un progetto JavaScript esistente a TypeScript può essere fatto gradualmente, senza la necessità di riscrivere tutto. Il secondo vantaggio è rappresentato dalla possibilità di sfruttare il compilatore TypeScript su codice JavaScript standard per individuare già in fase di compilazione errori che normalmente possono sfuggire.
+
+## Tuple
+Un nuovo tipo di dato introdotto da TypeScript è rappresentato dalle *tuple*, che permette di definire array con elementi diversi tra loro e di fissare il tipo di un numero di elementi definendo uno schema preciso:
+```
+  var persona : [string, number] = ["Gabriele", 25];
+```
+Le tuple non hanno dimensione fissa quindi è possibile aggiungere nuovi elementi all'array, es:
+```
+  persona[3] = "Puliti";
+  persona[5] = 1992;
+```
+L'unica restrizione è che non siano introdotti nella tupla nuovi elementi di tipi diversi, es:
+```
+  persona[4] = true;
+```
+Questo darà errore.
+
+## Enumerazioni
+
+** da fare : [enumerazioni](http://www.html.it/pag/55692/tipi-di-dato-in-typescript/)**
+
+## Any e Void
+Questi due tipi di dato servono per congiungere la tipizzazione dinamica di JavaScript, infatti avremo che:
+  - Una variabile di tipo **any** potrà contenere qualsiasi tipo di dato:
+```
+  var myVar: any = 123; 
+  myVar = "Una stringa"; 
+  myVar = true;
+  var myArray: any[] = ["stringa", 123, true];
+  var myVar: any = new Persona(); 
+```
+  - un tipo di dato **void** indica l'assenza di un valore ed è normalmente usato per indicare che una funzione non restituisce alcun valore, quindi ha lo stesso significato degli altri linguaggi di programmazione.
+
+
+
+
+
+
+#### Per un tutorial completo andare su [html.it](http://www.html.it/guide/guida-typescript/)
