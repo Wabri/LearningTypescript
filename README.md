@@ -207,32 +207,32 @@ Aprendo la pagina web il risultato sarà semplicemente la stampa di "Hello, Gabr
 
 ## Getters and Setters
 
-** da fare : [getters&setters](http://www.html.it/pag/55871/accesso-alle-proprieta-della-classe/)**
+**da fare : [getters&setters](http://www.html.it/pag/55871/accesso-alle-proprieta-della-classe/)**
 
 ## Ereditarietà
 
-** da fare : [Ereditarietà](http://www.html.it/pag/55927/ereditarieta-in-typescript/)**
+**da fare : [Ereditarietà](http://www.html.it/pag/55927/ereditarieta-in-typescript/)**
 
 ## Interfacce di classi
 
-** da fare : [InterfacceDiClassi](http://www.html.it/pag/56000/classi-ed-interfacce/)**
+**da fare : [InterfacceDiClassi](http://www.html.it/pag/56000/classi-ed-interfacce/)**
 
 ## Mixins
 
-** da fare : [mixins](http://www.html.it/pag/56069/mixins-in-typescript/)**
+**da fare : [mixins](http://www.html.it/pag/56069/mixins-in-typescript/)**
 
 ## Tipizzazione di funzioni
 
-** da fare : [TipizzazioneDiFunzioni](http://www.html.it/pag/56112/funzioni-e-tipizzazione/)**
+**da fare : [TipizzazioneDiFunzioni](http://www.html.it/pag/56112/funzioni-e-tipizzazione/)**
 
 ## Overloading di funzioni
 
-** da fare : [OverloadingDiFunzioni](http://www.html.it/pag/56431/overloading-delle-funzioni/)**
+**da fare : [OverloadingDiFunzioni](http://www.html.it/pag/56431/overloading-delle-funzioni/)**
 
 ## Namespace
 
-** da fare : [Namespace](http://www.html.it/pag/56769/namespace/)**
+**da fare : [Namespace](http://www.html.it/pag/56769/namespace/)**
 
 ## Moduli
 
-** da fare : [Moduli](http://www.html.it/pag/56961/moduli-in-typescript/)**
+**da fare : [Moduli](http://www.html.it/pag/56961/moduli-in-typescript/)**
