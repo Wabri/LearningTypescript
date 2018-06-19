@@ -64,7 +64,40 @@ greeter.ts:7:35 - error TS2345: Argument of type 'number[]' is not assignable to
 TypeScript ci avvertirà se il nostro codice ha delle chiamate a funzioni inaspettate o sbagliate, offre quindi un'analisi statica del codice sia da un punto di vista di struttura che dai tipi usati.
 Notiamo anche che nonostante l'output su terminale abbiamo dato un risultato negativo, il file javascript viene comunque creato. Quindi possiamo usare il file javascript creato nonostante siano stati trovati errori da TypeScript.
 
-## Interfacce e classi
+
+## Tuple
+Un nuovo tipo di dato introdotto da TypeScript è rappresentato dalle *tuple*, che permette di definire array con elementi diversi tra loro e di fissare il tipo di un numero di elementi definendo uno schema preciso:
+```
+  var persona : [string, number] = ["Gabriele", 25];
+```
+Le tuple non hanno dimensione fissa quindi è possibile aggiungere nuovi elementi all'array, es:
+```
+  persona[3] = "Puliti";
+  persona[5] = 1992;
+```
+L'unica restrizione è che non siano introdotti nella tupla nuovi elementi di tipi diversi, es:
+```
+  persona[4] = true;
+```
+Questo darà errore.
+
+## Enumerazioni
+
+** da fare : [enumerazioni](http://www.html.it/pag/55692/tipi-di-dato-in-typescript/)**
+
+## Any e Void
+Questi due tipi di dato servono per congiungere la tipizzazione dinamica di JavaScript, infatti avremo che:
+  - Una variabile di tipo **any** potrà contenere qualsiasi tipo di dato:
+```
+  var myVar: any = 123; 
+  myVar = "Una stringa"; 
+  myVar = true;
+  var myArray: any[] = ["stringa", 123, true];
+  var myVar: any = new Persona(); 
+```
+  - un tipo di dato **void** indica l'assenza di un valore ed è normalmente usato per indicare che una funzione non restituisce alcun valore, quindi ha lo stesso significato degli altri linguaggi di programmazione.
+
+## Interfacce
 In un linguaggio che si rispetta è necessario avere un modo per definire delle interfacce, modifichiamo quindi il nostro esempio aggiungendo un'interfaccia e adeguiamo il codice a questa modifica:
 ```
 interface Person {
@@ -105,6 +138,7 @@ var x : Dizionario;
 x["chiave1"] = "valore1";
 x["chiave2"] = "valore2";
 ```
+## Classi
 Dato che TypeScript è class-based object-oriented significa che esistono le classi. Estendiamo il nostro esempio creando la classe student con un costruttore e alcuni campi pubblici:
 ```
 class Student {
@@ -145,6 +179,18 @@ var user = new Student("Gabriele", "Sig.", "Puliti");
 document.body.innerHTML = greeter(user);
 ```
 Notiamo quindi la differenza essenziale di un codice in javascript da uno in TypeScript che è estremamente molto più leggibile.
+Se non diversamente specificato le proprietà di una classe sono con visibilità pubblica, cioè accessibile da codice esterno alla classe. Per settare un metodo o variabile privata è necessario indicare esplicitamente prima della dichiarazione con **private**, es:
+```
+  class Persona {
+     private nome: string;
+     cognome: string;
+     
+     private visualizzaNome () {
+          return this.nome;
+     }
+  }
+```
+Ogni tentativo di usare il metodo a partire da un'istanza della classe genererà un errore del compilatore.
 
 ## Run the code
 Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a creare la pagina greeter.html con il seguente codice:
@@ -159,41 +205,34 @@ Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a c
 ```
 Aprendo la pagina web il risultato sarà semplicemente la stampa di "Hello, Gabriele Puliti".
 
-## Tuple
-Un nuovo tipo di dato introdotto da TypeScript è rappresentato dalle *tuple*, che permette di definire array con elementi diversi tra loro e di fissare il tipo di un numero di elementi definendo uno schema preciso:
-```
-  var persona : [string, number] = ["Gabriele", 25];
-```
-Le tuple non hanno dimensione fissa quindi è possibile aggiungere nuovi elementi all'array, es:
-```
-  persona[3] = "Puliti";
-  persona[5] = 1992;
-```
-L'unica restrizione è che non siano introdotti nella tupla nuovi elementi di tipi diversi, es:
-```
-  persona[4] = true;
-```
-Questo darà errore.
+## Getters and Setters
 
-## Enumerazioni
+** da fare : [getters&setters](http://www.html.it/pag/55871/accesso-alle-proprieta-della-classe/)**
 
-** da fare : [enumerazioni](http://www.html.it/pag/55692/tipi-di-dato-in-typescript/)**
+## Ereditarietà
 
-## Any e Void
-Questi due tipi di dato servono per congiungere la tipizzazione dinamica di JavaScript, infatti avremo che:
-  - Una variabile di tipo **any** potrà contenere qualsiasi tipo di dato:
-```
-  var myVar: any = 123; 
-  myVar = "Una stringa"; 
-  myVar = true;
-  var myArray: any[] = ["stringa", 123, true];
-  var myVar: any = new Persona(); 
-```
-  - un tipo di dato **void** indica l'assenza di un valore ed è normalmente usato per indicare che una funzione non restituisce alcun valore, quindi ha lo stesso significato degli altri linguaggi di programmazione.
+** da fare : [Ereditarietà](http://www.html.it/pag/55927/ereditarieta-in-typescript/)**
 
+## Interfacce di classi
 
+** da fare : [InterfacceDiClassi](http://www.html.it/pag/56000/classi-ed-interfacce/)**
 
+## Mixins
 
+** da fare : [mixins](http://www.html.it/pag/56069/mixins-in-typescript/)**
 
+## Tipizzazione di funzioni
 
-#### Per un tutorial completo andare su [html.it](http://www.html.it/guide/guida-typescript/)
+** da fare : [TipizzazioneDiFunzioni](http://www.html.it/pag/56112/funzioni-e-tipizzazione/)**
+
+## Overloading di funzioni
+
+** da fare : [OverloadingDiFunzioni](http://www.html.it/pag/56431/overloading-delle-funzioni/)**
+
+## Namespace
+
+** da fare : [Namespace](http://www.html.it/pag/56769/namespace/)**
+
+## Moduli
+
+** da fare : [Moduli](http://www.html.it/pag/56961/moduli-in-typescript/)**
