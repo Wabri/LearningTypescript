@@ -1,5 +1,17 @@
 # LearningTypescript
 
+## Indice
+1. [Introduzione](#introduzione)
+2. [Installazione](#installazione)
+3. [Esempio](#primo-file-typeScript)
+4. [Tipi](#spiegazione-dei-tipi)
+5. [Tuple](#tuple)
+6. [Enumerazioni](#enumerazioni)
+7. [Any e Void](#any-e-void)
+8. [Interfacce](#interfacce)
+9. [Classi](#classi)
+10. [Cose ancora da fare](#getters-and-setters)
+
 ## Introduzione
 TypeScript permette di non soffrire dal passaggio da linguaggi di programmazione orientati agli oggetti a JavaScript in cui sono assenti i tipi. JavaScript è un linguaggio tipizzato che non prevede controlli statici sui tipi di dato effettuando una conversione implicita tra i tipi, questa particolarità lo rende enormemente flessibile il problema arriva quando si generano errori che difficilmente sono analizzabili a runtime. Un'applicazione TypeScript viene tradotta da un compilatore in un'applicazione JavaScript eseguibile da qualsiasi engine. (Ci sono alcuni siti che forniscono degli ambienti online che traducono interattivamente il codice TypeScript in codice JavaScript, vedi [typescriptlang](http://www.typescriptlang.org/play/)).
 
@@ -190,10 +202,7 @@ Se non diversamente specificato le proprietà di una classe sono con visibilità
      }
   }
 ```
-Ogni tentativo di usare il metodo a partire da un'istanza della classe genererà un errore del compilatore.
-
-## Run the code
-Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a creare la pagina greeter.html con il seguente codice:
+Ogni tentativo di usare il metodo a partire da un'istanza della classe genererà un errore del compilatore. Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a creare la pagina greeter.html con il seguente codice:
 ```
 <!DOCKTYPE html>
 <html>
