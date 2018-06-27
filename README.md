@@ -3,7 +3,7 @@
 ## Indice
 1. [Introduzione](#introduzione)
 2. [Installazione](#installazione)
-3. [Esempio](#primo-file-typeScript)
+3. [Esempio](#primo-file-typescript)
 4. [Tipi](#spiegazione-dei-tipi)
 5. [Tuple](#tuple)
 6. [Enumerazioni](#enumerazioni)
