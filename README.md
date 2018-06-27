@@ -30,7 +30,7 @@ $ npm install -g typescript
 
 ## Primo file TypeScript
 creiamo un file chiamato greeter.ts con questo contenuto:
-```
+```TS
   function greeter(person) {
     return "Hello, " + person;
   }
@@ -44,7 +44,7 @@ Notiamo che l'estensione di questo file è .ts, anche se effettivamente il codic
 $ tsc greeter.ts
 ```
 Il risultato di questo comando sarà un file greeter.js che conterrà essenzialmente lo stesso codice del precendente. Andiamo ora a parlare dei miglioramenti che possiamo avere usando questo nuovo linguaggio. Aggiungiamo al codice precedente una annotazione al tipo del parametro passato alla funzione greeter:
-```
+```JS
 function greeter(person:string) {
   return "Hello, " + person;
 }
@@ -58,7 +58,7 @@ Compiliamo nuovamente e otteremo il solito file javascript in output. Nel file t
 ## Spiegazione dei tipi
 I tipi in TypeScript sono leggere e sono un modo per sapere e ricordarsi a cosa serve o qual'è l'intento di una funzione o di una variabile. Risulta quindi più leggibile se vogliamo passare da linguaggi di programmazione a oggetti come java.
 Nel nostro esempio il nostro intento è quello di chiamare la funzione *greeter* con un singolo parametro di tipo stringa. Possiamo modificare ancora il nostro esempio passando un array invece che una stringa:
-```
+```TS
 function greeter(person: string) {
   return "Hello, " + person;
 }
@@ -79,16 +79,16 @@ Notiamo anche che nonostante l'output su terminale abbiamo dato un risultato neg
 
 ## Tuple
 Un nuovo tipo di dato introdotto da TypeScript è rappresentato dalle *tuple*, che permette di definire array con elementi diversi tra loro e di fissare il tipo di un numero di elementi definendo uno schema preciso:
-```
+```TS
   var persona : [string, number] = ["Gabriele", 25];
 ```
 Le tuple non hanno dimensione fissa quindi è possibile aggiungere nuovi elementi all'array, es:
-```
+```TS
   persona[3] = "Puliti";
   persona[5] = 1992;
 ```
 L'unica restrizione è che non siano introdotti nella tupla nuovi elementi di tipi diversi, es:
-```
+```TS
   persona[4] = true;
 ```
 Questo darà errore.
@@ -100,7 +100,7 @@ Questo darà errore.
 ## Any e Void
 Questi due tipi di dato servono per congiungere la tipizzazione dinamica di JavaScript, infatti avremo che:
   - Una variabile di tipo **any** potrà contenere qualsiasi tipo di dato:
-```
+```TS
   var myVar: any = 123; 
   myVar = "Una stringa"; 
   myVar = true;
@@ -111,7 +111,7 @@ Questi due tipi di dato servono per congiungere la tipizzazione dinamica di Java
 
 ## Interfacce
 In un linguaggio che si rispetta è necessario avere un modo per definire delle interfacce, modifichiamo quindi il nostro esempio aggiungendo un'interfaccia e adeguiamo il codice a questa modifica:
-```
+```TS
 interface Person {
   firstName: string;
   lastName: string;
@@ -126,7 +126,7 @@ let user = { firstName: "Gabriele", lastName: "Puliti"}
 document.body.innerHTML = greeter(user);
 ```
 compilando vediamo che nel file javascript risultante non comparirà l'interfaccia ma il codice si adatterà a quello che abbiamo creato con TypeScript:
-```
+```JS
 function greeter(person) {
     return "Hello, " + person.firstName + " " + person.lastName;
 }
@@ -134,7 +134,7 @@ var user = { firstName: "Gabriele", lastName: "Puliti" };
 document.body.innerHTML = greeter(user);
 ```
 Se nell'interfaccia alcune proprietà non sono necessarie è possible inserire un punto interrogativo accanto al nome della proprietà per indicare il fatto che quella proprietà è opzionale, es:
-```
+```TS
   interface Person {
     firstName: string;
     lastName: string;
@@ -142,7 +142,7 @@ Se nell'interfaccia alcune proprietà non sono necessarie è possible inserire u
   }
 ```
 Usando le interfacce è possibile definire i così detti Dizionari, es:
-```
+```TS
 interface Dizionario {
   [index: string] : string
 }
@@ -152,7 +152,7 @@ x["chiave2"] = "valore2";
 ```
 ## Classi
 Dato che TypeScript è class-based object-oriented significa che esistono le classi. Estendiamo il nostro esempio creando la classe student con un costruttore e alcuni campi pubblici:
-```
+```TS
 class Student {
   fullName: string;
   constructor (public firstName: string, public middleInitial: string, public lastName: string) {
@@ -174,7 +174,7 @@ let user = new Student("Gabriele", "Sig.", "Puliti");
 document.body.innerHTML = greeter(user);
 ```
 Immaginiamo che con l'aggiunta di questa classe il codice javascript corrispondente sarà completamente cambiato. Effettivamente rieseguendo la compilazione del codice TypeScript otterremo il seguendo codice:
-```
+```JS
 var Student = /** @class */ (function () {
     function Student(firstName, middleInitial, lastName) {
         this.firstName = firstName;
@@ -192,7 +192,7 @@ document.body.innerHTML = greeter(user);
 ```
 Notiamo quindi la differenza essenziale di un codice in javascript da uno in TypeScript che è estremamente molto più leggibile.
 Se non diversamente specificato le proprietà di una classe sono con visibilità pubblica, cioè accessibile da codice esterno alla classe. Per settare un metodo o variabile privata è necessario indicare esplicitamente prima della dichiarazione con **private**, es:
-```
+```TS
   class Persona {
      private nome: string;
      cognome: string;
@@ -203,7 +203,7 @@ Se non diversamente specificato le proprietà di una classe sono con visibilità
   }
 ```
 Ogni tentativo di usare il metodo a partire da un'istanza della classe genererà un errore del compilatore. Per vedere il risultato del nostro esempio sotto forma di pagina web andiamo a creare la pagina greeter.html con il seguente codice:
-```
+```HTML
 <!DOCKTYPE html>
 <html>
   <head><title>TypeScript Greeter</title></head>
